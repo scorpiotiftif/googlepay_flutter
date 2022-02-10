@@ -1,0 +1,38 @@
+{
+  "provider": "google_pay",
+  "data": {
+    "environment": "TEST",
+    "apiVersion": 2,
+    "apiVersionMinor": 0,
+    "allowedPaymentMethods": [
+      {
+        "type": "CARD",
+        "tokenizationSpecification": {
+          "type": "PAYMENT_GATEWAY",
+          "parameters": {
+            "gateway": "stripe",
+            "stripe:version": "2018-11-08",
+            "stripe:publishableKey": "<PUT_YOUR_PUBLISHABLE_KEY_HERE>"
+          }
+        },
+        "parameters": {
+          "allowedCardNetworks": ["VISA", "MASTERCARD","AMEX", "DISCOVER", "INTERAC", "JCB"],
+          "allowedAuthMethods": ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+          "billingAddressRequired": true,
+          "billingAddressParameters": {
+            "format": "FULL",
+            "phoneNumberRequired": true
+          }
+        }
+      }
+    ],
+    "merchantInfo": {
+      "merchantId": "<PUT_YOUR_MERCHANT_ID_HERE>",
+      "merchantName": "<PUT_YOUR_MERCHANT_NAME_HERE>"
+    },
+    "transactionInfo": {
+      "countryCode": "FR",
+      "currencyCode": "EUR"
+    }
+  }
+}
